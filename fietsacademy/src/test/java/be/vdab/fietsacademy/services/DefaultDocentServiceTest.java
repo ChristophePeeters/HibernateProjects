@@ -18,7 +18,6 @@ import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
 
-// enkele andere imports
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultDocentServiceTest {
     private DefaultDocentService service;
