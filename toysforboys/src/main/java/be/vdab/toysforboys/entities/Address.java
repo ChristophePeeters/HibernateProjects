@@ -2,6 +2,7 @@ package be.vdab.toysforboys.entities;
 
 import javax.persistence.Embeddable;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Embeddable
 public class Address implements Serializable {
@@ -35,5 +36,21 @@ public class Address implements Serializable {
 
     public String getPostalCode() {
         return postalCode;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Address address = (Address) o;
+        return Objects.equals(getStreetAndNumber(), address.getStreetAndNumber()) &&
+                Objects.equals(getCity(), address.getCity()) &&
+                Objects.equals(getState(), address.getState()) &&
+                Objects.equals(getPostalCode(), address.getPostalCode());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getStreetAndNumber(), getCity(), getState(), getPostalCode());
     }
 }

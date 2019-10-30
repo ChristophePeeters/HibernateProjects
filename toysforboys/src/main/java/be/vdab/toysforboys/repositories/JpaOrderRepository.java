@@ -20,6 +20,6 @@ public class JpaOrderRepository implements OrderRepository {
 
     @Override
     public List<Order> findUnshipped() {
-        return manager.createQuery("select o from Order o where status not in ('SHIPPED','CANCELLED')",Order.class).getResultList();
+        return manager.createNamedQuery("Order.findUnshipped",Order.class).getResultList();
     }
 }

@@ -3,7 +3,7 @@ package be.vdab.toysforboys.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
 
@@ -14,9 +14,9 @@ public class Order implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private Date ordered;
-    private Date required;
-    private Date shipped;
+    private LocalDate ordered;
+    private LocalDate required;
+    private LocalDate shipped;
     private String comments;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "customerId")
@@ -37,15 +37,15 @@ public class Order implements Serializable {
         return id;
     }
 
-    public Date getOrdered() {
+    public LocalDate getOrdered() {
         return ordered;
     }
 
-    public Date getRequired() {
+    public LocalDate getRequired() {
         return required;
     }
 
-    public Date getShipped() {
+    public LocalDate getShipped() {
         return shipped;
     }
 

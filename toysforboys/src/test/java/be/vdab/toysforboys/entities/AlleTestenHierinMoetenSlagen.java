@@ -1,9 +1,9 @@
 package be.vdab.toysforboys.entities;
 
-import be.vdab.toysforboys.entities.*;
+
 import be.vdab.toysforboys.repositories.JpaOrderRepository;
 import org.junit.Before;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -60,7 +60,7 @@ public class AlleTestenHierinMoetenSlagen extends AbstractTransactionalJUnit4Spr
         Address address = new Address("Straat 18", "Antwerpen", "Antwerpen", "2000");
         assertThat(customer.getAddress()).isEqualTo(address);
         assertThat(customer.getName()).isEqualTo("Jos");
-        assertThat(customer.getCountry().getName()).isEqualTo("Belgium");
+        assertThat(customer.getCountry().getName()).isEqualTo("België");
     }
 
     @Test

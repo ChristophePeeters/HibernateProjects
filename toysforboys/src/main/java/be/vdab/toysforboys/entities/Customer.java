@@ -15,13 +15,12 @@ public class Customer implements Serializable {
     private long id;
 
     private String name;
-    private String streetAndNumber;
-    private String city;
-    private String state;
-    private String postalCode;
+    @Embedded
+    private Address address;
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "countryId")
     private Country country;
+    @Version
     private long version;
 
     protected Customer() {
@@ -35,24 +34,8 @@ public class Customer implements Serializable {
         return name;
     }
 
-    public String getStreetAndNumber() {
-        return streetAndNumber;
-    }
-
-    public String getCity() {
-        return city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
     public Address getAddress() {
-        return new Address(getStreetAndNumber(), getCity(), getState(), getPostalCode());
+        return address;
     }
 
     public Country getCountry() {

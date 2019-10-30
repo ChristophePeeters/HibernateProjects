@@ -3,6 +3,7 @@ package be.vdab.toysforboys.entities;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Entity
 @Table(name = "products")
@@ -55,7 +56,7 @@ public class Product implements Serializable {
     }
 
     public BigDecimal getPrice() {
-        return price;
+        return price.setScale(1, RoundingMode.DOWN);
     }
 
     public Productline getProductline() {
