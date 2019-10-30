@@ -1,0 +1,25 @@
+package be.vdab.toysforboys.repositories;
+
+import be.vdab.toysforboys.entities.Order;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.EntityManager;
+import java.util.List;
+import java.util.Optional;
+
+@Repository
+public class JpaOrderRepository implements OrderRepository {
+    private final EntityManager manager;
+    JpaOrderRepository(EntityManager manager) {
+        this.manager = manager;
+    }
+    @Override
+    public Optional<Order> findById(long id){
+        return Optional.ofNullable(manager.find(Order.class, id));
+    };
+
+    @Override
+    public List<Order> findUnshipped() {
+        return manager.createQuery("select o from Order o where status not in ('SHIPPED','CANCELLED')",Order.class).getResultList();
+    }
+}

@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import java.util.List;
 import java.util.Optional;
 
-// enkele imports
 @Repository
 class JpaAlbumRepository implements AlbumRepository {
     private final EntityManager manager;

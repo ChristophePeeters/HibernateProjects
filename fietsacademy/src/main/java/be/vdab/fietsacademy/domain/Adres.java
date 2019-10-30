@@ -15,7 +15,7 @@ public class Adres implements Serializable {
 // getters voor straat, huisNr, postcode en gemeente
 
 
-    public Adres() {
+    protected Adres() {
     }
 
     public Adres(String straat, String huisNr, String postcode, String gemeente) {

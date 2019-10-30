@@ -21,7 +21,6 @@ public class Track implements Serializable {
         return tijd;
     }
 
-// equals en hashCode gebaseerd op naam
 
     @Override
     public boolean equals(Object o) {
